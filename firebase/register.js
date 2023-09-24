@@ -1,60 +1,46 @@
-import { auth, db } from "/.conflig.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
-import { collection, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-firestore.js";
+import { auth } from "./config.js";
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 
-const email = document.getElementById("email");
-const password = document.getElementById("password");
+const usernameElm = document.getElementById("username");
+const passwordElm = document.getElementById("password");
 const registerBtn = document.getElementById("register-btn");
-const errorMessage = document.getElementById("error-message");
-
-
-
-
-const firebaseConfig = {
-    apiKey: "AIzaSyBgAdx3GicNrTne-OyR7TBooxmH76djYo4",
-    authDomain: "fir-661a4.firebaseapp.com",
-    databaseURL: "https://fir-661a4-default-rtdb.firebaseio.com",
-    projectId: "fir-661a4",
-    storageBucket: "fir-661a4.appspot.com",
-    messagingSenderId: "994175467030",
-    appId: "1:994175467030:web:f5d0d267899bfe1d62bf37",
-    measurementId: "G-1ZFF98H1J4"
+const formElm = document.getElementById("signup-form")
+const handleRegister = () => {
+    const email = usernameElm.value;
+    const password = passwordElm.value;
+    createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            alert(user.email);
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorCode);
+        });
 };
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+formElm.addEventListener("submit", handleRegister)
+// registerBtn.addEventListener("click", handleRegister);
 
-const signUp = () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-    console.log(email, password)
+// import { auth } from "config.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.1/firebase-auth.js";
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then((result) => {
-
-            document.write("You are Signed Up")
-            console.log(result)
-
+const usernameelm = document.getElementById("username");
+const passwordelm = document.getElementById("password");
+const loginBtn = document.getElementById("login-btn");
+const formelm = document.getElementById("signin-form")
+const handleLogin = () => {
+    const email = usernameElm.value;
+    const password = passwordElm.value;
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            window.location = './index.html';
         })
         .catch((error) => {
-            console.log(error.code);
-            console.log(error.message)
-
+            const errorCode = error.code;
+            alert(errorCode);
         });
-}
+};
 
-const signIn = () => {
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((result) => {
-
-            document.write("You are Signed In")
-            console.log(result)
-        })
-        .catch((error) => {
-            console.log(error.code);
-            console.log(error.message)
-        });
-}
-
+formelm.addEventListener("submit", handleLogin);
