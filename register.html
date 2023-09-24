@@ -2,41 +2,37 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/style.css">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign up</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.8.4/firebase-auth-compat.js"></script>
 </head>
 
 <body>
-    <h2>Sign in/up Form</h2>
-    <div class="container" id="container">
-        <div class="form-container sign-in-container">
-            <form onsubmit="signup()">
-                <h1>Create Account</h1>
-                <div class="social-container">
-                    <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                    <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email for registration</span>
-                <input id="name" type="text" placeholder="Name" required />
-                <input id="email" type="email" placeholder="Email" required />
-                <input id="password" type="password" placeholder="Password" required />
-                <button id="btn" type="submit">Sign Up</button>
-            </form>
+    <div class="form">
+        <!-- Email  -->
+        <div class="email">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Write your email" />
         </div>
-        <div class="overlay-container">
-            <div class="overlay">
-                <div class="overlay-panel overlay-right">
-                    <h1>Welcome Back!</h1>
-                    <p>To keep connected with us please login with your personal info</p>
-                    <button class="ghost" id="signIn">Sign In</button>
-                </div>
-            </div>
+        <!-- passWord -->
+        <div class="pass">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" placeholder="password" />
         </div>
+
+        <!-- Sign Up button -->
+        <button id="submit-btn" onclick="signUp()">Sign Up</button>
+        <!-- Sign In option -->
+        <p>Already have an account ?</p>
+        <span><a href="/login.html">Sign In</a></span>
     </div>
+
+    <script src="/js/main.js"></script>
 </body>
-<script src="/js/main.js"></script>
 
 </html>
