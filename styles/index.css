@@ -74,6 +74,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 7%;
+    padding-right: 1%;
     position: fixed;
     top: 0;
     left: 0;
@@ -106,6 +107,11 @@ header .logo i {
     background: var(--green);
 }
 
+.wct {
+    display: inline-block;
+    padding-left: 6px;
+}
+
 .header .icons i,
 .header .icons a {
     cursor: pointer;
@@ -129,6 +135,15 @@ header .logo i {
 
 header .icons #menu-bars {
     display: none;
+}
+
+.box-welcome {
+    background: none !important;
+    font-size: 1rem !important;
+}
+
+.box-welcome:hover {
+    color: var(--green) !important;
 }
 
 #search-form {

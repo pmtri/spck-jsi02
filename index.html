@@ -12,7 +12,7 @@
 
 <body>
     <header class="header">
-        <a href="#" class="logo"><i class="fas fa-utensils"></i> tris.</a>
+        <a href="#home" class="logo"><i class="fas fa-utensils"></i> tris.</a>
         <nav class="navbar">
             <a class="active" href="#home">home</a>
             <a href="#dishes">dishes</a>
@@ -26,6 +26,10 @@
             <i class="fas fa-search" id="search-icon"></i>
             <a href="#" class="fas fa-heart"></a>
             <a href="./signup.html" class="fas fa-shopping-cart"></a>
+            <a href="./signup.html" class="fa-solid fa-user"></a>
+            <a href="./signup.html" class="box-welcome">
+                <h1 id="welcome-text" class="wct"> </h1>
+            </a>
         </div>
 
     </header>
@@ -582,6 +586,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="/js/main.js"></script>
+    <script type="module" src="./firebase/displayname.js"></script>
 </body>
 
 </html>

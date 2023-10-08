@@ -19,4 +19,4 @@ const handleLogin = (e) => {
         });
 };
 
-formElm.addEventListener("submit", handleLogin);
+formElm.addEventListener("submit", handleLogin)
