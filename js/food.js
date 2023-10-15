@@ -49,7 +49,25 @@ let products = [
         name: 'PRODUCT NAME 6',
         image: '6.PNG',
         price: 120000
-    }
+    },
+    {
+        id: 7,
+        name: 'PRODUCT NAME 7',
+        image: '1.PNG',
+        price: 320000
+    },
+    {
+        id: 8,
+        name: 'PRODUCT NAME 8',
+        image: '4.PNG',
+        price: 320000
+    },
+    {
+        id: 9,
+        name: 'PRODUCT NAME 9',
+        image: '2.PNG',
+        price: 320000
+    },
 ];
 let listCards = [];
 function initApp() {
@@ -57,7 +75,7 @@ function initApp() {
         let newDiv = document.createElement('div');
         newDiv.classList.add('item');
         newDiv.innerHTML = `
-            <img src="images/${value.image}">
+            <img src="/images/${value.image}">
             <div class="title">${value.name}</div>
             <div class="price">${value.price.toLocaleString()}</div>
             <button onclick="addToCard(${key})">Add To Card</button>`;
@@ -67,7 +85,7 @@ function initApp() {
 initApp();
 function addToCard(key) {
     if (listCards[key] == null) {
-        // copy product form list to list card
+
         listCards[key] = JSON.parse(JSON.stringify(products[key]));
         listCards[key].quantity = 1;
     }
@@ -83,7 +101,7 @@ function reloadCard() {
         if (value != null) {
             let newDiv = document.createElement('li');
             newDiv.innerHTML = `
-                <div><img src="images/${value.image}"/></div>
+                <div><img src="/images/${value.image}"/></div>
                 <div>${value.name}</div>
                 <div>${value.price.toLocaleString()}</div>
                 <div>
