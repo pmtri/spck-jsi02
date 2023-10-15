@@ -11,7 +11,7 @@ const handleLogin = (e) => {
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            window.location = "index.html";
+            window.location = "logout.html";
         })
         .catch((error) => {
             const errorCode = error.code;
